@@ -8,7 +8,7 @@ defineProps<{ products: Product[] | undefined }>()
   <main>
     <ul>
       <li v-for="product in products" :key="product.id">
-        <div id="product-info" class="w-screen max-w-24 flex flex-row m-2 items-center ">
+        <div v-if="product.quantity > 0" id="product-info" class="w-screen max-w-24 flex flex-row m-2 items-center ">
           <img class="h-20 w-20" :src="product.thumbnail"> <h2 class="m-3"> {{ product.title }}</h2> <button @click="product.quantity--">- </button>
           <input
             v-model="product.quantity" type="number"
