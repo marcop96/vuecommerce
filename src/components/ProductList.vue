@@ -26,6 +26,7 @@ function addToCartHandler(product: Product) {
   else
     cart.value.push((product))
   emit('updateCart', cart.value)
+  
 }
 </script>
 
