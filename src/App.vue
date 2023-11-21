@@ -13,6 +13,7 @@ function updateCartHandler(updatedCart: Product[]) {
 
 <template>
   <NavBar />
+  <router-view />
   <div>
     <CartComponent :products="cart" />
     <ProductList @update-cart="updateCartHandler" />

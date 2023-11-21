@@ -7,9 +7,10 @@
     <div class="flex justify-between items-center">
       <h1 class="text-white p-2">Logo</h1>
       <div class="flex">
-        <a class="text-white p-2">Home</a>
+        <router-link to="/">Go to Home</router-link>
         <a class="text-white p-2">Shop</a>
         <a class="text-white p-2">Account</a>
+        <router-link to="/about">About</router-link>
       </div>
     </div>
   </header>
