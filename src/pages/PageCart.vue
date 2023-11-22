@@ -1,17 +1,18 @@
 <script lang="ts" setup>
-import CartComponent from '../components/CartComponent.vue';
+import { useStore } from '../composable/useStore';
 
-defineProps({
-  cart: {
-    type: Array,
-    required: true,
-  },
-})
+const { product: productStore } = useStore()
 </script>
 
 <template>
-  <CartComponent :products="cart" />
-  <div>CART</div>
+  <div>
+    <h1>Shopping Cart</h1>
+    <ul>
+      <li v-for="product in products" :key="product.id">
+        {{ product.name }} - Quantity: {{ product.quantity }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style>
