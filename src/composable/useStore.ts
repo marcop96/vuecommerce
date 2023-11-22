@@ -1,10 +1,19 @@
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import type { Product } from '../../types'
 
-const product = ref<Product[]>([])
-
+const products = ref<Product[]>([])
+watch(products, (v) => { console.log(v) })
 export function useStore() {
-  const increment = () => product.value
-  const addToCart = (item: Product) => product.value.push(item)
-  return { product, increment, addToCart }
+  const increment = () => products.value
+  const handleItem = (item: Product) => {
+    for (let i = 0; i < products.value.length; i++) {
+      if (products.value[i].id === item.id) {
+        products.value[i].quantity++
+        return
+      }
+    }
+    products.value.push(item)
+  }
+
+  return { products, increment, handleItem }
 }

@@ -4,9 +4,7 @@ import type { Product } from '../../types';
 import ProductCard from '../components/ProductCard.vue';
 import { useStore } from '../composable/useStore';
 
-const emit = defineEmits(['addProduct'])
-
-const { product: increment, addToCart } = useStore()
+const { handleItem } = useStore()
 
 const API_URL = 'https://dummyjson.com/products'
 const products = ref<Product[] | undefined>(undefined)
@@ -21,15 +19,11 @@ onMounted(() => {
       console.error('Error fetching data:', error)
     })
 })
-
-function addToCartHandler(e: Product) {
-  console.log((addToCart(e)))
-}
 </script>
 
 <template>
   <div class="grid grid-cols-4 gap-2">
-    <ProductCard v-for="product in products" :key="product.id" :product="product" @add-to-cart="addToCartHandler" />
+    <ProductCard v-for="product in products" :key="product.id" :product="product" @add-to-cart="handleItem" />
   </div>
 </template>
 

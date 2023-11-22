@@ -1,15 +1,15 @@
 <script lang="ts" setup>
 import { useStore } from '../composable/useStore';
 
-const { product: productStore } = useStore()
+const { products: productStore } = useStore()
 </script>
 
 <template>
   <div>
     <h1>Shopping Cart</h1>
     <ul>
-      <li v-for="product in products" :key="product.id">
-        {{ product.name }} - Quantity: {{ product.quantity }}
+      <li v-for="product in productStore" :key="product.id">
+        {{ product.title }} - Quantity: {{ product.quantity }}
       </li>
     </ul>
   </div>
