@@ -1,27 +1,26 @@
-<script lang="ts" setup>
-import { computed } from 'vue'
-import type { Product } from '../../types'
+<script setup lang="ts">
 
-const props = defineProps<{ products: Product[] | undefined }>()
-const totalPrice = computed(() => props.products ? props.products.reduce((total: number, product: Product) => total + product.price * product.quantity, 0) : 0)
+
+
+// function addToCartHandler(product: Product) {
+//   const existingProductIndex = cart.value.findIndex(item => item.id === product.id)
+//   if (cart.value.some(item => item.id === product.id))
+//     cart.value[existingProductIndex].quantity++
+
+//   else
+//     cart.value.push((product))
+//   emit('updateCart', cart.value)
+//   console.log((cart.value))
+// }
 </script>
 
 <template>
-  <main>
+  <div>
+    <h1>Shopping Cart</h1>
     <ul>
       <li v-for="product in products" :key="product.id">
-        <div v-if="product.quantity > 0" id="product-info" class="w-screen max-w-24 flex flex-row m-2 items-center ">
-          <img class="h-20 w-20" :src="product.thumbnail"> <h2 class="m-3"> {{ product.title }}</h2> <button @click="product.quantity--">- </button>
-          <span class="text-sm">{{ product.quantity }}</span>
-
-          <button @click="product.quantity++">+</button>
-          <button @click="product.quantity = 0">delete</button>
-        </div>
+        {{ product.name }} - Quantity: {{ product.quantity }}
       </li>
     </ul>
-    <span> {{ totalPrice }}</span>
-  </main>
+  </div>
 </template>
-
-<style>
-</style>
