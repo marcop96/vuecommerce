@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue'
 import type { Product } from '../../types'
 import ProductCard from './ProductCard.vue'
 
-const emit = defineEmits(['updateCart'])
+const emit = defineEmits(['addProduct'])
 const API_URL = 'https://dummyjson.com/products'
 const products = ref<Product[] | undefined>(undefined)
 onMounted(() => {
@@ -16,17 +16,9 @@ onMounted(() => {
       console.error('Error fetching data:', error)
     })
 })
-const cart = ref<Product[]>([])
 
-function addToCartHandler(product: Product) {
-  const existingProductIndex = cart.value.findIndex(item => item.id === product.id)
-  if (cart.value.some(item => item.id === product.id))
-    cart.value[existingProductIndex].quantity++
-
-  else
-    cart.value.push((product))
-  emit('updateCart', cart.value)
-  
+function addToCartHandler(){
+  emit('addProduct')
 }
 </script>
 
