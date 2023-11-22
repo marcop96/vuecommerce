@@ -3,7 +3,7 @@ import CartComponent from '../components/CartComponent.vue';
 
 defineProps({
   cart: {
-      type: Array,
+    type: Array,
     required: true,
   },
 })
