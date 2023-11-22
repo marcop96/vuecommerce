@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
-import type { Product } from '../../types'
-import ProductCard from '../components/ProductCard.vue'
+import { onMounted, ref } from 'vue';
+import type { Product } from '../../types';
+import ProductCard from '../components/ProductCard.vue';
 
 const emit = defineEmits(['addProduct'])
 const API_URL = 'https://dummyjson.com/products'

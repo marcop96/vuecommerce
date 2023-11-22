@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import CartComponent from '../components/CartComponent.vue'
+import CartComponent from '../components/CartComponent.vue';
 
 defineProps({
   cart: {
-    type: Array,
+      type: Array,
     required: true,
   },
 })
