@@ -4,7 +4,7 @@ import type { Product } from '../../types';
 import ProductCard from '../components/ProductCard.vue';
 import { useStore } from '../composable/useStore';
 
-const { handleItem } = useStore()
+const { handleIncrement } = useStore()
 
 const API_URL = 'https://dummyjson.com/products'
 const products = ref<Product[] | undefined>(undefined)
@@ -23,7 +23,7 @@ onMounted(() => {
 
 <template>
   <div class="grid grid-cols-4 gap-2">
-    <ProductCard v-for="product in products" :key="product.id" :product="product" @add-to-cart="handleItem" />
+    <ProductCard v-for="product in products" :key="product.id" :product="product" @add-to-cart="handleIncrement" />
   </div>
 </template>
 
