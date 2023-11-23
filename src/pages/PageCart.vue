@@ -1,7 +1,12 @@
 <script lang="ts" setup>
+import { computed } from 'vue';
 import { useStore } from '../composable/useStore';
 
 const { products: productStore, handleDecrement, handleIncrement } = useStore()
+
+const totalPrice = computed(() =>
+  productStore.value.reduce((acc, product) => acc + product.price * product.quantity, 0),
+)
 </script>
 
 <template>
@@ -10,7 +15,8 @@ const { products: productStore, handleDecrement, handleIncrement } = useStore()
     <div class="w-full lg:w-2/3 lg:pr-6">
       <div class="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden" data-v0-t="card">
         <div class="p-6 divide-y space-y-6">
-          <div v-for="product in productStore" :key="product.id" class="flex items-center space-x-4">
+          <div v-if="productStore.length === 0" class="text-center">BUY SOMETHING</div>
+          <div v-for="product in productStore" :key="product.id" class="flex items-center space-x-4 pt-2">
             <img
               :src="product.thumbnail"
               width="60"
@@ -62,7 +68,7 @@ const { products: productStore, handleDecrement, handleIncrement } = useStore()
           </div>
           <div class="mb-4">
             <div class="text-sm text-gray-500">Total:</div>
-            <div>$190</div>
+            <div>${{ totalPrice }}</div>
           </div>
         </div>
         <div class="flex items-center p-6">s</div>
