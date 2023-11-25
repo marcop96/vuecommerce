@@ -6,7 +6,6 @@ const { products: productStore, handleDecrement, handleIncrement } = useStore()
 
 const totalPrice = computed(() =>
   productStore.value.reduce((acc, product) => acc + product.price * product.quantity, 0),
-
 )
 </script>
 
