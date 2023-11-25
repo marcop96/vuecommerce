@@ -1,9 +1,11 @@
 import { ref } from 'vue'
 import type { Product } from '../../types'
 
+const cartQuantity = ref(0)
 const products = ref<Product[]>([])
 export function useStore() {
   const handleIncrement = (item: Product) => {
+    cartQuantity.value++
     for (let i = 0; i < products.value.length; i++) {
       if (products.value[i].id === item.id) {
         products.value[i].quantity++
@@ -13,6 +15,7 @@ export function useStore() {
     products.value.push(item)
   }
   const handleDecrement = (item: Product) => {
+    cartQuantity.value--
     for (let i = 0; i < products.value.length; i++) {
       if (products.value[i].id === item.id) {
         if (products.value[i].quantity > 1)
@@ -26,5 +29,5 @@ export function useStore() {
     }
   }
 
-  return { products, handleIncrement, handleDecrement }
+  return { products, cartQuantity, handleIncrement, handleDecrement }
 }

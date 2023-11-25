@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { useStore } from '../composable/useStore';
 
+const { cartQuantity } = useStore()
 </script>
 
 <template>
@@ -9,7 +11,7 @@
       <div class="flex space-x-3 text-white ">
         <router-link to="/">Home</router-link>
         <router-link to="/shop">Shop</router-link>
-        <router-link to="/cart">Cart</router-link>
+        <router-link to="/cart">Cart {{ cartQuantity }}</router-link>
       </div>
     </div>
   </header>
