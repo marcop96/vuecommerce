@@ -2,7 +2,7 @@
 import type { Product } from '../../types';
 
 const props = defineProps<{
-  product: Product
+  productData: Product
 }>()
 console.log('Received props:', props)
 </script>

@@ -19,6 +19,7 @@ const routes = [
         })
         .catch((error) => {
           console.error('Error fetching product data:', error)
+          next()
         })
     },
   },
