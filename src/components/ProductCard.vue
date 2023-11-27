@@ -10,7 +10,7 @@ defineEmits(['addToCart'])
 <template>
   <article class=" w-86 flex m-2 p-2 h-full flex-col items-center justify-between rounded-lg bg-blue-500  shadow transition-transform  duration-75 hover:scale-[1.01] hover:shadow-lg card-container  ">
     <figure class="h-36 ">
-      <router-link :props="product.id" :to="`/product/${product.title}` ">
+      <router-link :props="product.id" :to="`/product/${product.id}` ">
         <img class="object-contain h-full w-full" :src="product.thumbnail" :alt="product.title">
       </router-link>
     </figure>

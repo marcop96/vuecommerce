@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import type { Product } from '../../types';
+
 const props = defineProps<{
-  id: string
+  product: Product
 }>()
-console.log('Received props:', props.id)
+console.log('Received props:', props)
 </script>
 
 <template>
