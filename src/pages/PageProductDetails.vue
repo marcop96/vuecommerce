@@ -7,34 +7,18 @@ defineProps<{
 </script>
 
 <template>
-  <div class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-lg">
-    <div class="flex">
-      <div class="w-1/2">
-        <img
-          v-for="(image, index) in productData.images"
-          :key="index"
-          :src="image"
-          :alt="productData.title"
-          class="mb-4 rounded-lg shadow-lg"
-        >
+  <div class="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-6xl px-4 mx-auto py-6">
+    <div class="grid gap-4">
+      <img :src="productData.images[0]" alt="Product Image" width="600" height="600" class="aspect-square object-cover border border-zinc-200 w-full rounded-lg overflow-hidden dark:border-zinc-800"><div class="flex gap-4">
+        <img v-for="(image, index) in productData.images" :key="index" :src="image" alt="Product Image" width="100" height="100" class="aspect-square object-cover border border-zinc-200 w-full rounded-lg overflow-hidden dark:border-zinc-800">
       </div>
-      <div class="w-1/2 ml-8">
-        <h2 class="text-4xl font-semibold mb-4 text-gray-800">{{ productData.title }}</h2>
-        <p class="text-gray-600 text-lg">{{ productData.description }}</p>
-        <div class="mt-6">
-          <p class="text-2xl font-bold text-blue-600 mb-2">
-            ${{ productData.price }}
-            <span class="text-gray-500 line-through ml-2">${{ productData.price }}</span>
-          </p>
-          <div class="flex items-center space-x-4">
-            <div class="flex items-center">
-              <p class="text-gray-800">{{ productData.rating }}/5</p>
-            </div>
-            <p class="text-gray-800">Stock: {{ productData.stock }} available</p>
-          </div>
-          <p class="text-gray-800">Brand: {{ productData.brand }}</p>
-          <p class="text-gray-800">Category: {{ productData.category }}</p>
-        </div>
+    </div><div class="grid gap-4 md:gap-10 items-start">
+      <h1 class="font-bold text-3xl">
+        {{ productData.title }}
+      </h1><div class="text-4xl font-bold">{{ productData.price }}</div><div><p>{{ productData.description }}</p></div><div class="grid gap-2">
+        <label class="font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-base" for="rating">
+          Rating: {{ productData.rating }}
+        </label><div class="text-sm"><p>{{ productData.category }}</p></div>
       </div>
     </div>
   </div>
