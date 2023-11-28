@@ -1,4 +1,5 @@
 // router.ts
+import type { RouteLocationNormalized, RouteParamValue } from 'vue-router'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
@@ -10,8 +11,9 @@ const routes = [
     name: 'product-details',
     component: () => import('../pages/PageProductDetails.vue'),
     props: true,
-    beforeEnter: (to, from, next) => {
-      fetchData(to.params.id)
+    children: [],
+    beforeEnter: (to: RouteLocationNormalized, from: RouteLocationNormalized, next: () => void) => {
+      fetchData(to.params.id as RouteParamValue)
         .then((productData) => {
           to.params.productData = productData
           next()
@@ -29,7 +31,7 @@ const router = createRouter({
   routes,
 })
 
-function fetchData(id: number) {
+function fetchData(id: string) {
   return fetch(`https://dummyjson.com/products/${id}`)
     .then((response) => {
       if (!response.ok)

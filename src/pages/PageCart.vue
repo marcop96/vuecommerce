@@ -60,7 +60,7 @@ const totalPrice = computed(() =>
           <div class="mb-4">
             <label for="discount" class="block text-sm text-gray-500">Discount Code:</label>
             <input id="discount" class="mt-1 block w-full border rounded-md p-2 text-sm" type="text">
-            <button class="mt-2 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-grey-500 hover:text-accent-foreground h-10 px-4 py-2">Apply</button>
+            <button class="mt-2 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none h-10 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-grey-500 hover:text-accent-foreground px-4 py-2">Apply</button>
           </div>
           <div class="mb-4">
             <div class="text-sm text-gray-500">Total:</div>

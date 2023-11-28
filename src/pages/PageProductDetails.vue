@@ -17,8 +17,8 @@ const setActiveImage = (image: string) => {
 <template>
   <div class="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-6xl px-4 mx-auto py-6">
     <div class="grid gap-4">
-      <img id="main-img" :src="activeImage" alt="Product Image" width="600" height="600" class="aspect-square object-cover border border-zinc-200 w-full rounded-lg overflow-hidden dark:border-zinc-800"><div class="flex gap-4">
-        <img v-for="(image, index) in productData.images" :key="index" :src="image" alt="Product Image" width="100" height="100" class="aspect-square object-cover border border-zinc-200 w-full rounded-lg overflow-hidden dark:border-zinc-800" @click="setActiveImage(image)">
+      <img id="main-img" :src="activeImage" alt="Product Image" width="600" height="600" class="aspect-square object-cover border border-zinc-200 w-full rounded-lg overflow-hidden dark:border-zinc-800 "><div class="flex gap-4">
+        <img v-for="(image, index) in productData.images" :key="index" :src="image" alt="Product Image" width="100" height="100" class="aspect-square object-cover  rounded-lg border border-zinc-200   overflow-hidden dark:border-zinc-800" @click="setActiveImage(image)">
       </div>
     </div><div class="grid gap-4 md:gap-10 items-start">
       <h1 class="font-bold text-3xl">
