@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import type { Product } from '../../types';
+import { useStore } from '../composable/useStore';
 
-defineProps<{
+const props = defineProps<{
   productData: Product
 }>()
+
+const { handleIncrement } = useStore()
 </script>
 
 <template>
@@ -15,11 +18,12 @@ defineProps<{
     </div><div class="grid gap-4 md:gap-10 items-start">
       <h1 class="font-bold text-3xl">
         {{ productData.title }}
-      </h1><div class="text-4xl font-bold">{{ productData.price }}</div><div><p>{{ productData.description }}</p></div><div class="grid gap-2">
+      </h1><div class="text-4xl font-bold">${{ productData.price }}</div><div><p>{{ productData.description }}</p></div><div class="grid gap-2">
         <label class="font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-base" for="rating">
           Rating: {{ productData.rating }}
         </label><div class="text-sm"><p>{{ productData.category }}</p></div>
       </div>
+      <button class="bg-blue-600 hover:bg-blue-400 rounded-full p-2" @click="handleIncrement(productData)">Add to Cart</button>
     </div>
   </div>
 </template>

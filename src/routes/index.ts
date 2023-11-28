@@ -11,7 +11,6 @@ const routes = [
     component: () => import('../pages/PageProductDetails.vue'),
     props: true,
     beforeEnter: (to, from, next) => {
-      console.log(to)
       fetchData(to.params.id)
         .then((productData) => {
           to.params.productData = productData

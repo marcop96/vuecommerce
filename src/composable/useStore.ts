@@ -6,14 +6,18 @@ const products = ref<Product[]>([])
 export function useStore() {
   const handleIncrement = (item: Product) => {
     cartQuantity.value++
-    for (let i = 0; i < products.value.length; i++) {
-      if (products.value[i].id === item.id) {
-        products.value[i].quantity++
-        return
-      }
+
+    const index = products.value.findIndex(product => product.id === item.id)
+
+    if (index !== -1) {
+      products.value[index].quantity = (products.value[index].quantity ?? 0) + 1
     }
-    products.value.push(item)
+    else {
+      item.quantity = 1
+      products.value.push(item)
+    }
   }
+
   const handleDecrement = (item: Product) => {
     cartQuantity.value--
     for (let i = 0; i < products.value.length; i++) {
