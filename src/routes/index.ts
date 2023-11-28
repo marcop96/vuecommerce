@@ -12,7 +12,7 @@ const routes = [
     component: () => import('../pages/PageProductDetails.vue'),
     props: true,
     children: [],
-    beforeEnter: (to: RouteLocationNormalized, from: RouteLocationNormalized, next: () => void) => {
+    beforeEnter: (to: RouteLocationNormalized, _from: RouteLocationNormalized, next: () => void) => {
       fetchData(to.params.id as RouteParamValue)
         .then((productData) => {
           to.params.productData = productData
